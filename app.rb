@@ -18,6 +18,15 @@ class App < Sinatra::Base
     "#{@phrase * @num}" 
   end
   
+  
+  get '/say/:word1/:word2/:word3/:word4/:word5' do
+    params.each { |name, value| instance_variable_set("@#{name}", value) }
+  
+    "#{@word1} #{@word2} #{@word3} #{@word4} #{@word5}."
+  end
+  
+  
+  
   get '/say/:word1/:word2/:word3/:word4/:word5' do
     @word1 = params[:word1]
     @word2 = params[:word2]
